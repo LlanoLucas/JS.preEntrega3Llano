@@ -145,7 +145,7 @@ cargarProducto().forEach((element) => {
           " ",
           ""
         )}"
-          >-</span
+        onclick="sacarDelCarrito(${element.id})">-</span
         >
         <span class="carrito_prodcutos__botonera_num" id="cant${element.sabor.replaceAll(
           " ",
@@ -157,7 +157,7 @@ cargarProducto().forEach((element) => {
           " ",
           ""
         )}"
-         onclick="console.log(${element})">+</span
+         onclick="agregarAlCarrito(${element.id})">+</span
         >
       </div>
     </li>`;
@@ -172,13 +172,13 @@ cargarProducto().forEach((element) => {
         </div>
         <div class="carrito__productos__botonera">
           <span class="carrito__productos__botonera__menos" id="menos${element.sabor}"
-            >-</span
+          onclick="sacarDelCarrito(${element.id})">-</span
           >
           <span class="carrito_prodcutos__botonera_num" id="cant${element.sabor}"
             >${element.cantidad}</span
           >
           <span class="carrito__productos__botonera__mas" id="mas${element.sabor}"
-            >+</span
+          onclick="agregarAlCarrito(${element.id})">+</span
           >
         </div>
       </li>`;
@@ -186,16 +186,3 @@ cargarProducto().forEach((element) => {
 });
 
 let masCanela = document.getElementById("masCanelayAzúcar");
-
-function agregarAlArray(objeto) {
-  let cantidad = objeto.cantidad;
-  if ((cantidad = 0)) {
-    cantidad = cantidad++;
-    arrayProductos.push(objeto);
-    console.log(arrayProductos);
-  } else {
-    cantidad = cantidad++;
-  }
-}
-
-masCanela.addEventListener("click", agregarAlArray(talitas[0]));

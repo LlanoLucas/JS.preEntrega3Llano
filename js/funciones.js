@@ -20,12 +20,24 @@ function buscarProducto(id) {
   return productos.find((item) => item.id === id);
 }
 
+function estaEnElCarrito(id) {
+  const carrito = cargarCarrito();
+
+  return carrito.some((item) => item.id === id);
+}
+
 function agregarAlCarrito(id) {
   const carrito = cargarCarrito();
-  const producto = buscarProducto(id);
-  producto.cantidad++;
 
-  carrito.push(producto);
+  if (estaEnElCarrito(id)) {
+    let pos = carrito.findIndex((item) => item.id === id);
+    carrito[pos].cantidad += 1;
+    carrito[pos].precio = carrito[pos].cantidad * 600;
+  } else {
+    const producto = buscarProducto(id);
+    producto.cantidad = 1;
+    carrito.push(producto);
+  }
   guardarCarrito(carrito);
   renderCarrito();
   botonRender();
@@ -40,9 +52,25 @@ function sacarDelCarrito(id) {
   renderCarrito();
 }
 
+function restarDelCarrito(id) {
+  let carrito = cargarCarrito();
+
+  if (estaEnElCarrito(id)) {
+    let pos = carrito.findIndex((item) => item.id === id);
+    if (carrito[pos].cantidad > 1) {
+      carrito[pos].cantidad -= 1;
+      carrito[pos].precio = carrito[pos].cantidad * 600;
+      guardarCarrito(carrito);
+      renderCarrito();
+      botonRender();
+    } else {
+      sacarDelCarrito(id);
+    }
+  }
+}
+
 function carritoLength() {
   let carrito = cargarCarrito();
-  console.log(carrito.length);
   return carrito.length;
 }
 

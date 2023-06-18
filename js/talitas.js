@@ -145,7 +145,7 @@ cargarProducto().forEach((element) => {
           " ",
           ""
         )}"
-        onclick="sacarDelCarrito(${element.id})">-</span
+        onclick="restarDelCarrito(${element.id})">-</span
         >
         <span class="carrito_prodcutos__botonera_num" id="cant${element.sabor.replaceAll(
           " ",
@@ -172,7 +172,7 @@ cargarProducto().forEach((element) => {
         </div>
         <div class="carrito__productos__botonera">
           <span class="carrito__productos__botonera__menos" id="menos${element.sabor}"
-          onclick="sacarDelCarrito(${element.id})">-</span
+          onclick="restarDelCarrito(${element.id})">-</span
           >
           <span class="carrito_prodcutos__botonera_num" id="cant${element.sabor}"
             >${element.cantidad}</span

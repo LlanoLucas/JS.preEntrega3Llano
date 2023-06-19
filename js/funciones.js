@@ -20,6 +20,17 @@ function buscarProducto(id) {
   return productos.find((item) => item.id === id);
 }
 
+function cantidadSelector(id) {
+  const carrito = cargarCarrito();
+
+  if (estaEnElCarrito(id)) {
+    let pos = carrito.findIndex((item) => item.id === id);
+    return carrito[pos].cantidad;
+  } else {
+    return 0;
+  }
+}
+
 function estaEnElCarrito(id) {
   const carrito = cargarCarrito();
 
@@ -38,6 +49,8 @@ function agregarAlCarrito(id) {
     producto.cantidad = 1;
     carrito.push(producto);
   }
+  selectorProductos.innerHTML = "";
+  renderSelector();
   guardarCarrito(carrito);
   renderCarrito();
   botonRender();
@@ -66,8 +79,12 @@ function restarDelCarrito(id) {
       renderCarrito();
       botonRender();
       renderSubtotal();
+      selectorProductos.innerHTML = "";
+      renderSelector();
     } else {
       sacarDelCarrito(id);
+      selectorProductos.innerHTML = "";
+      renderSelector();
     }
   }
   let carro = document.getElementById("carro");

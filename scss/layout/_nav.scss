@@ -25,6 +25,16 @@
   }
 }
 
-#boton-carrito:after {
-  content: "";
+#boton-carrito {
+  position: absolute;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 110%;
+  width: 1.3em;
+  border-radius: 50%;
+  background-color: #ffb74c;
+  border: 2px solid #000;
+  margin-top: -1.75em;
+  margin-left: 1.2em;
 }

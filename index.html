@@ -43,7 +43,7 @@
             <li>
               <a href="#">Para Empresas</a>
             </li>
-            <li id="boton-carrito">
+            <li id="carro">
               <a href="#carrito"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,20 +118,8 @@
                 </ul>
               </header>
               <ul class="carrito__resumen__productos" id="productos_carrito">
-                <ul>
-                  <li>Jamón</li>
-                  <li>x 1u</li>
-                  <li>$600</li>
-                </ul>
-                <ul>
-                  <li>Cebolla</li>
-                  <li>x 2u</li>
-                  <li>$1200</li>
-                </ul>
-                <ul>
-                  <li>Orégano</li>
-                  <li>x 1u</li>
-                  <li>$600</li>
+                <ul class="m-auto mb-1">
+                  No hay productos en el carrito...
                 </ul>
               </ul>
               <ul class="carrito__resumen__productos__subtotal">
@@ -145,12 +133,12 @@
                 </ul>
                 <ul>
                   <li>Envio:</li>
-                  <li>$350</li>
+                  <li id="envio">$0</li>
                 </ul>
               </ul>
               <ul class="carrito__resumen__productos__total">
                 <li>Total:</li>
-                <li>$2750</li>
+                <li id="total">$0</li>
               </ul>
             </ul>
             <a href="#pago"><button id="pbtn">Proceder al Pago</button></a>

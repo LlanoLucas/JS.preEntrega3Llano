@@ -49,9 +49,9 @@ function agregarAlCarrito(id) {
     producto.cantidad = 1;
     carrito.push(producto);
   }
+  guardarCarrito(carrito);
   selectorProductos.innerHTML = "";
   renderSelector();
-  guardarCarrito(carrito);
   renderCarrito();
   botonRender();
   renderSubtotal();
